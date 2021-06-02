@@ -12,4 +12,5 @@ COPY squashing.sh /squashing.sh
 
 RUN chmod +x /squashing.sh
 
-ENTRYPOINT ["sh","/squashing.sh", "ruby","/action/lib/index.rb"]
+ENTRYPOINT ["ruby","/action/lib/index.rb"]
+#ENTRYPOINT ["sh","/squashing.sh", "ruby","/action/lib/index.rb"]
