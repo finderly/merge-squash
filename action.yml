@@ -1,0 +1,47 @@
+name: 'Merge branch & Squashing Commits GA'
+description: 'A GitHub Action that manage git merge for any gitflow and squashes a number of commits'
+inputs:
+  type:
+    type: 'labeled | now'
+    required: false
+    default: 'labeled'
+  label_name:
+    description: 'PR Label name'
+    required: false
+  target_branch:
+    description: 'The name of target branch to merge'
+    required: true
+  from_branch:
+    description: 'Alias head_to_merge input'
+    required: false
+  head_to_merge:
+    description: 'The branch name or hash to merge. default GITHUB_SHA'
+    required: false
+  github_token:
+    description: 'Github token'
+    required: true
+  no_commits:
+    description: 'Number of commits to be squashed'
+    required: true
+    default: 2
+  user_email:
+    description: 'User git email needed to interact with git repo'
+    required: true
+    default: "tools+github-shpock-ci@shpock.com"
+  user_name:
+    description: 'User git name needed to interact with git repo'
+    required: true
+    default: "shpock-ci"
+  repo_name:
+    description: "Git repo name"
+    required: true
+    default: "finderly/web"
+
+
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'git-merge'
+  color: 'purple'
