@@ -7,10 +7,9 @@ COPY Gemfile Gemfile.lock /action/
 RUN bundle install
 COPY lib /action/lib
 
-#CMD ["ruby", "/action/lib/index.rb"]
-COPY squashing.sh /squashing.sh
+CMD ["ruby", "/action/lib/index.rb"]
+#COPY squashing.sh /squashing.sh
+#
+#RUN chmod +x /squashing.sh
 
-RUN chmod +x /squashing.sh
-
-ENTRYPOINT ["ruby","/action/lib/index.rb"]
 #ENTRYPOINT ["sh","/squashing.sh", "ruby","/action/lib/index.rb"]
