@@ -69,7 +69,7 @@ jobs:
 ```
 
 ### Squash and merge commits
-'''yaml
+```yaml
       - name: Merge master -> stagging
         uses: finderly/merge-squash@feature/adding-sq-merge
         with:
@@ -86,4 +86,4 @@ jobs:
           user_name: "shpock-ci"
           repo_name: "finderly/web"
           github_token: ${{ github.token }}
-'''
+```
