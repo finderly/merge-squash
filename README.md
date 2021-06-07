@@ -28,7 +28,7 @@ The user should specify the following input parameters:
 
 ### Squash commits
 ```yaml
-uses: finderly/merge-squash@v1.0.0
+uses: finderly/merge-squash/squashing@v1.0.0
 with:
   no_commits: 2
   user_email: "tools+github-shpock-ci@shpock.com"
@@ -67,3 +67,23 @@ jobs:
           target_branch: master
           github_token: ${{ github.token }}
 ```
+
+### Squash and merge commits
+'''yaml
+      - name: Merge master -> stagging
+        uses: finderly/merge-squash@feature/adding-sq-merge
+        with:
+          type: now
+          from_branch: master
+          target_branch: staging
+          github_token: ${{ github.token }}
+      - name: Squashing commits
+        uses: finderly/merge-squash/squashing@feature/adding-sq-merge
+        with:
+          target_branch: staging
+          no_commits: 1
+          user_email: "tools+github-shpock-ci@shpock.com"
+          user_name: "shpock-ci"
+          repo_name: "finderly/web"
+          github_token: ${{ github.token }}
+'''
