@@ -1,7 +1,15 @@
-FROM alpine/git:latest
+FROM ruby:2.6.3-alpine
 
-COPY squashing.sh /squashing.sh
+RUN apk update && apk add bash && apk add git
+WORKDIR /action
+COPY Gemfile Gemfile.lock /action/
 
-RUN chmod +x /squashing.sh
+RUN bundle install
+COPY lib /action/lib
 
-ENTRYPOINT ["sh","/squashing.sh"]
+CMD ["ruby", "/action/lib/index.rb"]
+#COPY squashing.sh /squashing.sh
+#
+#RUN chmod +x /squashing.sh
+#
+#ENTRYPOINT ["sh","/squashing.sh", "ruby","/action/lib/index.rb"]

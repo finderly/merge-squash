@@ -4,25 +4,25 @@ inputs:
   no_commits:
     description: 'Number of commits to be squashed'
     required: true
-    default: 2
+    default: 1
   user_email:
     description: 'User git email needed to interact with git repo'
-    required: true
-    default: "tools+github-shpock-ci@shpock.com"
+    required: false
+#    default: "tools+github-shpock-ci@shpock.com"
   user_name:
     description: 'User git name needed to interact with git repo'
-    required: true
-    default: "shpock-ci"
+    required: false
+#    default: "shpock-ci"
   target_branch:
     description: "target branch name where the squashing process will take place"
     required: true
   repo_name:
     description: "Git repo name"
-    required: true
-    default: "finderly/web"
+    required: false
+#    default: "finderly/web"
   github_token:
     description: "Github token"
-    required: true
+    required: false
 
 runs:
   using: 'docker'
