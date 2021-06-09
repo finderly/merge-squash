@@ -71,14 +71,14 @@ jobs:
 ### Squash and merge commits
 ```yaml
       - name: Merge master -> stagging
-        uses: finderly/merge-squash@feature/adding-sq-merge
+        uses: finderly/merge-squash@v1.0.0
         with:
           type: now
           from_branch: master
           target_branch: staging
           github_token: ${{ github.token }}
       - name: Squashing commits
-        uses: finderly/merge-squash/squashing@feature/adding-sq-merge
+        uses: finderly/merge-squash/squashing@v1.0.0
         with:
           target_branch: staging
           no_commits: 1
